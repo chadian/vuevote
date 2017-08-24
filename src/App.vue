@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <h1>Welcome to vuevote</h1>
-    <vote-question :question="question" :choices="choices"></vote-question>
+    <vote-question
+      v-on:choiceMade="choiceMade"
+      :question="question"
+      :choices="choices"></vote-question>
   </div>
 </template>
 
@@ -22,6 +25,11 @@ export default {
   },
   components: {
     VoteQuestion
+  },
+  methods: {
+    choiceMade(choice) {
+      alert(`You have chosen ${choice.name}`);
+    }
   }
 }
 </script>

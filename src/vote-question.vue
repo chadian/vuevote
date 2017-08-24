@@ -14,7 +14,7 @@ export default {
   props: ['question', 'choices'],
   methods: {
     choose: function(choice) {
-      alert(`You voted for ${choice.name}`);
+      this.$emit('choiceMade', choice);
     }
   }
 }
